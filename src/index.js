@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import Container from './experiment/components/Container';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -11,6 +10,7 @@ import { all, call } from 'redux-saga/effects';
 import { exp_reducer } from './experiment/reducers';
 import { combineReducers } from 'redux';
 
+import App from './App';
 // einbinden des reducers
 
 const reducer = combineReducers({
@@ -34,5 +34,5 @@ const store = createStore(
 );
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(<Provider store={store}><Container /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 registerServiceWorker();

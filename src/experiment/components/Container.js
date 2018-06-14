@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Text } from './Text';
@@ -7,22 +8,22 @@ import { Zahl } from './Zahl';
 class Container extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{paddingTop: "2em"}}>
         <div>
-          <button
+          <Button variant="raised"
             onClick={() => {
               this.props.dispatch({ type: 'TEXT' });
             }}
           >
             Text
-          </button>
-          <button
+          </Button>
+          <Button variant="secondary"
             onClick={() => {
               this.props.dispatch({ type: 'ZAHL' });
             }}
           >
             Zahl
-          </button>
+          </Button>
         </div>
         <Zahl zahl={this.props.zahl} />
         <Text text={this.props.text} />
