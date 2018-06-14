@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import Text from './Text';
 import Zahl from './Zahl';
-import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   buttons: {
