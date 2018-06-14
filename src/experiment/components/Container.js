@@ -2,8 +2,8 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Text } from './Text';
-import { Zahl } from './Zahl';
+import Text from './Text';
+import Zahl from './Zahl';
 
 class Container extends React.Component {
   render() {
