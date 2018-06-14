@@ -4,29 +4,44 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Text from './Text';
 import Zahl from './Zahl';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = theme => ({
+  buttons: {
+    margin: '2em'
+  },
+  button: {
+    '&:hover': {
+      background: 'pink'
+    },
+    background: '#aeaaff',
+    margin: '0.3em'
+  }
+});
 
 class Container extends React.Component {
   render() {
+    const { classes, dispatch, zahl, text } = this.props;
     return (
       <div style={{paddingTop: "2em"}}>
-        <div>
-          <Button variant="raised"
+        <div className={classes.buttons}>
+          <Button className={classes.button} variant="raised"
             onClick={() => {
-              this.props.dispatch({ type: 'TEXT' });
+              dispatch({ type: 'TEXT' });
             }}
           >
             Text
           </Button>
-          <Button variant="secondary"
+          <Button className={classes.button} variant="outlined"
             onClick={() => {
-              this.props.dispatch({ type: 'ZAHL' });
+              dispatch({ type: 'ZAHL' });
             }}
           >
             Zahl
           </Button>
         </div>
-        <Zahl zahl={this.props.zahl} />
-        <Text text={this.props.text} />
+        <Zahl zahl={zahl} />
+        <Text text={text} />
       </div>
     );
   }
@@ -39,4 +54,4 @@ Container.propTypes = {
 
 const mapStateToProps = state => ({ text: state.experiment.text, zahl: state.experiment.zahl });
 
-export default connect(mapStateToProps)(Container);
+export default connect(mapStateToProps)(withStyles(styles)(Container));
